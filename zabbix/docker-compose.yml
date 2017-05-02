@@ -12,7 +12,9 @@ services:
   
   zabbixserver:
     container_name: zabbix_server
-    image: zabbix/zabbix-server-pgsql:ubuntu-3.2.4
+    build: 
+      context: build/zabbix_server/
+      dockerfile: Dockerfile
     environment:
       - DB_SERVER_HOST=zabbix_psqldb
       - POSTGRES_USER=postgres
